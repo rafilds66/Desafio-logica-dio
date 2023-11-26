@@ -1,37 +1,23 @@
+def determinaNivel(xp):
+    intervalo = {
+        (0, 1000): "Ferro",
+        (1001, 2000): "Bronze",
+        (2001, 5000): "Prata",
+        (5001, 7000): "Ouro",
+        (7001, 8000): "Platina",
+        (8001, 9000): "Ascendente",
+        (9001, float('inf')): "Imortal",
+    }
+    
+    for intervalo, nivel in intervalo.items():
+        if intervalo[0] <= xp <= intervalo[1]:
+            return nivel
+    
+    return "Radiante" 
+
 nomeHeroi = input("Digite o nome do seu Herói: ")
-xpHeroi = int(input("Digite o Xp do seu herói: "))
-nivelHeroi = " "
+xpHeroi = int(input("Digite o XP do seu Herói: "))
 
-if xpHeroi < 1000:
-    nivelHeroi = "Ferro"
-    print("O Herói {} possui {} de XP e está no Nível {}." .format(nomeHeroi, xpHeroi, nivelHeroi))
-    
-elif xpHeroi > 1000 and xpHeroi <= 2000:
-    nivelHeroi = "Bronze"
-    print("O Herói {} possui {} de XP e está no Nível {}." .format(nomeHeroi, xpHeroi, nivelHeroi))
-    
-elif xpHeroi > 2000 and xpHeroi <= 5000:
-    nivelHeroi = "Prata"
-    print("O Herói {} possui {} de XP e está no Nível {}." .format(nomeHeroi, xpHeroi, nivelHeroi))
+nivelHeroi = determinaNivel(xpHeroi)
 
-elif xpHeroi > 5000 and xpHeroi <= 7000:
-    nivelHeroi = "Ouro"
-    print("O Herói {} possui {} de XP e está no Nível {}." .format(nomeHeroi, xpHeroi, nivelHeroi))
-    
-elif xpHeroi > 7000 and xpHeroi <= 8000:
-    nivelHeroi = "Platina"
-    print("O Herói {} possui {} de XP e está no Nível {}." .format(nomeHeroi, xpHeroi, nivelHeroi))
-
-elif xpHeroi > 8000 and xpHeroi <= 9000:
-    nivelHeroi = "Ascendente"
-    print("O Herói {} possui {} de XP e está no Nível {}." .format(nomeHeroi, xpHeroi, nivelHeroi))
-    
-elif xpHeroi > 9000 and xpHeroi <= 1000:
-    nivelHeroi = "Imortal"
-    print("O Herói {} possui {} de XP e está no Nível {}." .format(nomeHeroi, xpHeroi, nivelHeroi))
-    
-else:
-    nivelHeroi = "Radiante"
-    print("O Herói {} possui {} de XP e está no Nível {}." .format(nomeHeroi, xpHeroi, nivelHeroi))
-
-    
+print("O Herói {} possui {} de XP e está no Nível {}." .format(nomeHeroi, xpHeroi, nivelHeroi ))

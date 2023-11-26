@@ -1,22 +1,29 @@
 //Desafio Classificador de nível de Heroí
 
-let nomeHeroi = "Rafilds";
-let nivelXP = 0
+function determinaNivel(xp) {
+    const intervalos = [
+        { min: 0, max: 1000, nivel: "Ferro" },
+        { min: 1001, max: 2000, nivel: "Bronze" },
+        { min: 2001, max: 5000, nivel: "Prata" },
+        { min: 5001, max: 7000, nivel: "Ouro" },
+        { min: 7001, max: 8000, nivel: "Platina" },
+        { min: 8001, max: 9000, nivel: "Ascendente" },
+        { min: 9001, max: Infinity, nivel: "Imortal" }
+    ];
 
+    for (const intervalo of intervalos) {
+        if (xp >= intervalo.min && xp <= intervalo.max) {
+            return intervalo.nivel;
+        }
+    }
 
-switch (nivelXP){
-    case nivelXP < 1000:
-    let classXP = "Ferro"
-    console.log("O Hérói " + nomeHeroi + "está no nível " + classXP);
-    break
-
-    case nivelXP >= 1000 && nivelXP <= 2000:
-    classXP = "Bronze"
-    console.log(console.log("O Hérói " + nomeHeroi + "está no nível " + classXP);
-    break
+    return "Radiante";
 }
 
+const nomeHeroi = prompt("Digite o nome do seu Herói: ");
+const xpHeroi = parseInt(prompt("Digite o XP do seu Herói:"));
 
+const nivelHeroi = determinaNivel(xpHeroi);
 
-console.log(nome);
+console.log(`O Herói ${nomeHeroi} possui ${xpHeroi} de XP e está no Nível ${nivelHeroi}.`);
 
